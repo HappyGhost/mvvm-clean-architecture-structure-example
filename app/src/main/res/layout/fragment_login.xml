@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+    <include layout="@layout/include_header_action_right"
+             android:id="@+id/includeHeader"
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLayoutUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/login_content_margin_left_right"
+            android:layout_marginRight="@dimen/login_content_margin_left_right"
+            android:layout_marginTop="@dimen/login_content_margin_top"
+            app:layout_constraintTop_toBottomOf="@id/includeHeader">
+
+        <android.support.design.widget.TextInputEditText
+                android:id="@+id/edtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/login_input_field_username_text"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLayoutPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_password_field_margin_top"
+            app:layout_constraintLeft_toLeftOf="@id/inputLayoutUsername"
+            app:layout_constraintRight_toRightOf="@id/inputLayoutUsername"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutUsername">
+
+        <android.support.design.widget.TextInputEditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/login_input_field_password_text"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.v7.widget.SwitchCompat
+            android:id="@+id/switchRemember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_switch_margin_top"
+            app:layout_constraintLeft_toLeftOf="@id/inputLayoutPassword"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutPassword"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_remember_me_text"
+            android:textSize="@dimen/login_remember_me_text_size"
+            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/login_remember_me_text_margin_left"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutPassword"
+            app:layout_constraintBaseline_toBaselineOf="@id/switchRemember"
+            app:layout_constraintLeft_toRightOf="@id/switchRemember"/>
+
+    <android.support.design.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_btn_login_text"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/login_btn_login_margin_top"
+            app:layout_constraintTop_toBottomOf="@id/switchRemember"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
 </android.support.constraint.ConstraintLayout>

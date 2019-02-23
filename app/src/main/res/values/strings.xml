@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">MVVM example</string>
 
+    <!-- Walk through screen-->
     <string name="action_skip">Skip</string>
     <string name="general_header">GoBear</string>
     <string name="walk_through_page_1_content">page 1</string>
     <string name="walk_through_page_2_content">page 2</string>
     <string name="walk_through_page_3_content">page 3</string>
+
+    <!-- Login screen -->
+    <string name="login_input_field_username_text">Username</string>
+    <string name="login_input_field_password_text">Password</string>
+    <string name="login_remember_me_text">Remember me</string>
+    <string name="login_btn_login_text">Login</string>
 </resources>
