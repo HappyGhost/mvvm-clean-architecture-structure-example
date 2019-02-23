@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="header_text_size">32sp</dimen>
+    <dimen name="header_margin_right">24dp</dimen>
+    <dimen name="header_title_margin_top_bottom">20dp</dimen>
+
+    <!-- Walk through screen -->
+    <dimen name="walk_through_content_margin_bottom">15dp</dimen>
+    <dimen name="walk_through_indicator_spacing">4dp</dimen>
+    <dimen name="walk_through_indicator_dot_size">16dp</dimen>
+    <dimen name="walk_through_indicator_dot_stroke_width">2dp</dimen>
+    <dimen name="walk_through_indicator_dot_radius">8dp</dimen>
+    <dimen name="walk_through_margin_between_pager_and_indicator">8dp</dimen>
+    <dimen name="walk_through_content_margin_top">15dp</dimen>
+</resources>
