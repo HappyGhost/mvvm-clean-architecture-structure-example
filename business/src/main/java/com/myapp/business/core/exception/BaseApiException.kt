@@ -3,7 +3,7 @@ package com.myapp.business.core.exception
 import com.myapp.business.core.constants.ApiCode
 import okhttp3.Headers
 
-class BaseException : RuntimeException() {
+class BaseApiException : RuntimeException() {
     var code = ApiCode.UNKNOWN
     var httpCode: Int = 0
     var headers: Headers? = null

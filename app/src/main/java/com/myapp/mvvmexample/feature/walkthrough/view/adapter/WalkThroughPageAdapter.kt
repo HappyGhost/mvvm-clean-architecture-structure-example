@@ -1,4 +1,4 @@
-package com.myapp.mvvmexample.feature.walkthrough.adapter
+package com.myapp.mvvmexample.feature.walkthrough.view.adapter
 
 import android.content.Context
 import android.support.v4.app.Fragment

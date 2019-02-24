@@ -1,52 +1,36 @@
 package com.myapp.business.core.usecase
 
-import com.myapp.business.core.callback.ICallBack
-import com.myapp.business.core.exception.BaseException
+import android.arch.lifecycle.LiveData
+import com.myapp.business.core.callback.Resource
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-abstract class BaseUseCase<T : ICallBack<K>, K> : IUseCase<T> {
+abstract class BaseUseCase<K> {
 
     internal var mDisposable: Disposable? = null
 
-    protected abstract val observable: Observable<K>
+    protected var observable: Observable<K>? = null
 
-    override fun executeByCallBack(callBack: T) {
+
+    fun execute(): LiveData<Resource<K>> {
         mDisposable = observable
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
-            .subscribe({ info -> onSuccess(callBack, info) }, { throwable -> onError(callBack, throwable) })
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.subscribeOn(Schedulers.io())
+            ?.subscribe({ info -> onSuccess(info) }, { throwable -> onError(throwable) })
+        return resultLiveData()
     }
 
-    override fun destroy() {
+    fun destroy() {
         if (mDisposable != null) {
             mDisposable!!.dispose()
         }
     }
 
-    protected fun onError(callBack: T, e: Throwable) {
-        if (e is BaseException) {
-            if (!handleErrorException(e, callBack)) {
-                handleGenericError(e, callBack)
-            }
-        } else {
-            callBack.onError(e)
-        }
-    }
+    abstract fun onError(e: Throwable)
 
-    private fun handleGenericError(e: BaseException, callBack: T) {
-        if (e.exceptionType === BaseException.ExceptionType.NETWORK_ERROR) {
-            callBack.onNetworkError()
-        } else {
-            callBack.onGenericError(e)
-        }
-    }
+    abstract fun onSuccess(info: K)
 
-    protected abstract fun handleErrorException(e: BaseException, callBack: T): Boolean
-
-    protected fun onSuccess(callBack: T, info: K) {
-        callBack.onSuccess(info)
-    }
+    abstract fun resultLiveData(): LiveData<Resource<K>>
 }

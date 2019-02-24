@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.myapp.mvvmexample.R
-import com.myapp.mvvmexample.feature.walkthrough.adapter.WalkThroughPageAdapter
+import com.myapp.mvvmexample.feature.walkthrough.view.adapter.WalkThroughPageAdapter
 import kotlinx.android.synthetic.main.fragment_walkthrough.*
 import kotlinx.android.synthetic.main.include_header_action_right.*
 

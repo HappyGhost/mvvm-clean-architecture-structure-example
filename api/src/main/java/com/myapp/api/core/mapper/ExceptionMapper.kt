@@ -1,16 +1,16 @@
 package com.myapp.api.core.mapper
 
-import com.myapp.business.core.exception.BaseException
+import com.myapp.business.core.exception.BaseApiException
 import retrofit2.HttpException
 
-class ExceptionMapper : BaseInfoMapper<BaseException, HttpException>() {
+class ExceptionMapper : BaseInfoMapper<BaseApiException, HttpException>() {
 
-    override fun transform(httpException: HttpException): BaseException {
-        val baseException = BaseException()
+    override fun transform(httpException: HttpException): BaseApiException {
+        val baseException = BaseApiException()
         val response = httpException.response()
         baseException.httpCode = response.code()
         baseException.headers = response.headers()
-        baseException.exceptionType = BaseException.ExceptionType.HTTP_ERROR
+        baseException.exceptionType = BaseApiException.ExceptionType.HTTP_ERROR
         //handle common error json from server
         return baseException
     }

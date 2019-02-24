@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     <include layout="@layout/include_header_action_right"
@@ -69,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_btn_login_text"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:layout_marginTop="@dimen/login_btn_login_margin_top"
             app:layout_constraintTop_toBottomOf="@id/switchRemember"
             app:layout_constraintLeft_toLeftOf="parent"

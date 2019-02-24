@@ -12,6 +12,7 @@
             android:layout_marginEnd="@dimen/header_margin_right"
             android:layout_marginRight="@dimen/header_margin_right"
             android:visibility="invisible"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="action"/>
