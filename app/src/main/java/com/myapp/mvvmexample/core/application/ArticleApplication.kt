@@ -1,13 +1,14 @@
 package com.myapp.mvvmexample.core.application
 
 import android.app.Activity
-import android.app.Application
+import android.support.multidex.MultiDexApplication
+import com.android.example.github.di.AppInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import javax.inject.Inject
 
 
-class ArticleApplication : Application(), HasActivityInjector {
+class ArticleApplication : MultiDexApplication(), HasActivityInjector {
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 

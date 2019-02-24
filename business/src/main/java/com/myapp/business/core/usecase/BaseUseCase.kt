@@ -1,6 +1,6 @@
 package com.myapp.business.core.usecase
 
-import androidx.lifecycle.LiveData
+import android.arch.lifecycle.LiveData
 import com.myapp.business.core.callback.Resource
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

@@ -1,7 +1,7 @@
 package com.myapp.business.rss.login.usecase
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import com.myapp.business.core.callback.Resource
 import com.myapp.business.core.usecase.BaseUseCase
 import com.myapp.business.core.usecase.IUseCase
