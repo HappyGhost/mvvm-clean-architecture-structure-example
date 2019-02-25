@@ -1,7 +1,9 @@
 package com.myapp.business.core.usecase
 
 import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import com.myapp.business.core.callback.Resource
+import com.myapp.business.core.callback.Status
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -24,6 +26,7 @@ abstract class BaseUseCase<K> : IUseCase<K> {
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribeOn(Schedulers.io())
             ?.subscribe({ info -> onSuccess(info) }, { throwable -> onError(throwable) })
+        resultLiveData().postValue(Resource.loading(null))
         return resultLiveData()
     }
 
@@ -35,7 +38,9 @@ abstract class BaseUseCase<K> : IUseCase<K> {
 
     abstract fun onError(e: Throwable)
 
-    abstract fun onSuccess(info: K)
+    open fun onSuccess(info: K) {
+        resultLiveData().postValue(Resource(Status.SUCCESS, info, "success"))
+    }
 
-    abstract fun resultLiveData(): LiveData<Resource<K>>
+    abstract fun resultLiveData(): MutableLiveData<Resource<K>>
 }

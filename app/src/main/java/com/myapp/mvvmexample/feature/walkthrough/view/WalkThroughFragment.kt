@@ -1,17 +1,17 @@
 package com.myapp.mvvmexample.feature.walkthrough.view
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.myapp.mvvmexample.R
 import com.myapp.mvvmexample.feature.walkthrough.view.adapter.WalkThroughPageAdapter
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_walkthrough.*
 import kotlinx.android.synthetic.main.include_header_action_right.*
 
-class WalkThroughFragment : Fragment() {
+class WalkThroughFragment : DaggerFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_walkthrough, container, false)
