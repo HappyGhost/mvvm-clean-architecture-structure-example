@@ -47,12 +47,22 @@ class LoginFragment : DaggerFragment(), Injectable {
 
             }
         }
+
+        loginViewModel.loadUserInfoResult.observe(viewLifecycleOwner, Observer { result ->
+            edtUsername.setText(result?.data?.username)
+            edtPassword.setText(result?.data?.password)
+            switchRemember.isChecked = result?.data?.isRemember!!
+        })
+        loginViewModel.loadData(context!!)
     }
 
     private fun handleLoginResult(view: View, result: Resource<String>?) {
         when {
             result?.status == Status.SUCCESS -> {
                 hideProgressDialog()
+                if (switchRemember.isChecked) {
+                    loginViewModel.saveUserInfo(context!!, edtUsername.text.toString(), edtPassword.text.toString())
+                }
                 Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_articleListFragment)
             }
             result?.status == Status.ERROR -> {
