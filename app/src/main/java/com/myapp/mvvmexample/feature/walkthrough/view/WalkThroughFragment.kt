@@ -30,6 +30,9 @@ class WalkThroughFragment : DaggerFragment() {
         viewPager.adapter = adapter
         indicator.setViewPager(viewPager)
 
-        btnRight.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_walkThorughPageFragment_to_loginFragment))
+        btnRight.setOnClickListener { view ->
+            Navigation.findNavController(view).navigate(R.id.action_walkThorughPageFragment_to_loginFragment)
+
+        }
     }
 }

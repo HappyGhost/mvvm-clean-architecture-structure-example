@@ -42,22 +42,25 @@ class LoginFragment : DaggerFragment(), Injectable {
                 inputLayoutPassword.error = null
                 loginLiveData = loginViewModel.login(edtUsername.text.toString(), edtPassword.text.toString())
                 loginLiveData?.observe(viewLifecycleOwner, Observer { result ->
-                    when {
-                        result?.status == Status.SUCCESS -> {
-                            hideProgressDialog()
-                            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_articleListFragment)
-                            loginLiveData?.removeObservers(this)
-                        }
-                        result?.status == Status.ERROR -> {
-                            hideProgressDialog()
-                            inputLayoutUsername.error = getString(R.string.validation_error_login_fail)
-                            edtPassword.setText("")
-                        }
-                        result?.status == Status.LOADING -> showProcessDialog()
-                    }
+                    handleLoginResult(view, result)
                 })
 
             }
+        }
+    }
+
+    private fun handleLoginResult(view: View, result: Resource<String>?) {
+        when {
+            result?.status == Status.SUCCESS -> {
+                hideProgressDialog()
+                Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_articleListFragment)
+            }
+            result?.status == Status.ERROR -> {
+                hideProgressDialog()
+                inputLayoutUsername.error = getString(R.string.validation_error_login_fail)
+                edtPassword.setText("")
+            }
+            result?.status == Status.LOADING -> showProcessDialog()
         }
     }
 
