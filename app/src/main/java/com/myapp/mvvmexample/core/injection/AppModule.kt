@@ -16,15 +16,62 @@
 
 package com.android.example.github.di
 
-import com.myapp.api.rss.repository.LoginRepositoryImpl
+import com.myapp.api.rss.article.repository.ArticleRepositoryImpl
+import com.myapp.api.rss.article.service.ArticleService
+import com.myapp.api.rss.login.repository.LoginRepositoryImpl
+import com.myapp.business.rss.article.repository.ArticleRepository
+import com.myapp.business.rss.article.usecase.GetArticleListUseCase
+import com.myapp.business.rss.article.usecase.GetArticleListUseCaseImpl
 import com.myapp.business.rss.login.repository.LoginRepository
 import com.myapp.business.rss.login.usecase.LoginUseCase
 import com.myapp.business.rss.login.usecase.LoginUseCaseImpl
 import dagger.Module
 import dagger.Provides
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import org.simpleframework.xml.convert.AnnotationStrategy
+import org.simpleframework.xml.core.Persister
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory
+import javax.inject.Singleton
 
 @Module(includes = [ViewModelModule::class])
 class AppModule {
+
+    @Provides
+    @Singleton
+    fun provideOkHttpClient2(interceptor: Interceptor): OkHttpClient {
+        val builder = OkHttpClient.Builder()
+        builder.cache(null)
+        builder.followRedirects(false)
+        builder.followSslRedirects(false)
+        return builder.build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideApiAdapter(okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .client(okHttpClient)
+            .baseUrl("http://feeds.bbci.co.uk")
+            .addConverterFactory(
+                SimpleXmlConverterFactory.createNonStrict(
+                    Persister(AnnotationStrategy())
+                )
+            )
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideInterceptor(): Interceptor {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        return interceptor
+    }
 
     @Provides
     fun provideLoginUseCase(loginRepository: LoginRepository): LoginUseCase {
@@ -34,5 +81,15 @@ class AppModule {
     @Provides
     fun provideLoginRepository(): LoginRepository {
         return LoginRepositoryImpl()
+    }
+
+    @Provides
+    fun provideGetArticleListUseCase(repository: ArticleRepository): GetArticleListUseCase {
+        return GetArticleListUseCaseImpl(repository)
+    }
+
+    @Provides
+    fun provideArticleRepository(retrofit: Retrofit): ArticleRepository {
+        return ArticleRepositoryImpl(retrofit.create(ArticleService::class.java))
     }
 }

@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">MVVM example</string>
 
-    <!-- Walk through screen-->
+    <!-- General -->
     <string name="action_skip">Skip</string>
+    <string name="action_logout">Logout</string>
+
+    <!-- Walk through screen-->
+
     <string name="general_header">GoBear</string>
     <string name="walk_through_page_1_content">page 1</string>
     <string name="walk_through_page_2_content">page 2</string>
@@ -15,4 +19,7 @@
     <string name="login_btn_login_text">Login</string>
     <string name="validation_error_field_is_empty">Field is required</string>
     <string name="validation_error_login_fail">username or password is incorrect</string>
+    <string name="item_content_text_size">14sp</string>
+
+    <!-- Article List -->
 </resources>

@@ -12,17 +12,14 @@ import androidx.navigation.Navigation
 import com.myapp.business.core.callback.Resource
 import com.myapp.business.core.callback.Status
 import com.myapp.mvvmexample.R
-import com.myapp.mvvmexample.core.application.Injectable
-import com.myapp.mvvmexample.core.dialog.LoadingDialogMaterial
+import com.myapp.mvvmexample.core.view.BaseFragment
 import com.myapp.mvvmexample.feature.login.viewmodel.LoginViewModel
-import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_login.*
 import javax.inject.Inject
 
-class LoginFragment : DaggerFragment(), Injectable {
+class LoginFragment : BaseFragment() {
 
-    lateinit var loginViewModel: LoginViewModel
-    private var loadingDialogMaterial: LoadingDialogMaterial? = null
+    private lateinit var loginViewModel: LoginViewModel
     private var loginLiveData: LiveData<Resource<String>>? = null
 
     @Inject
@@ -72,17 +69,6 @@ class LoginFragment : DaggerFragment(), Injectable {
             }
             result?.status == Status.LOADING -> showProcessDialog()
         }
-    }
-
-    private fun showProcessDialog() {
-        if (loadingDialogMaterial == null) {
-            loadingDialogMaterial = LoadingDialogMaterial(context!!)
-        }
-        loadingDialogMaterial?.dialog?.show()
-    }
-
-    private fun hideProgressDialog() {
-        loadingDialogMaterial?.dialog?.hide()
     }
 
     private fun isInputValid(username: String, password: String): Boolean {

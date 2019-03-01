@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/item_article_content_padding">
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginBottom="@dimen/item_article_spacing_between_items"
+            android:layout_marginLeft="@dimen/item_article_title_margin_left"
+            android:layout_marginRight="@dimen/item_title_margin_right"
+            android:layout_marginStart="@dimen/item_article_title_margin_left"
+            android:layout_marginEnd="@dimen/item_title_margin_right"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textSize="@dimen/item_title_text_size"
+            android:textStyle="bold"
+            tools:text="Title"/>
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/item_article_spacing_between_items"
+            android:text="@string/item_content_text_size"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintLeft_toLeftOf="@id/tvTitle"
+            tools:text="10/10/2019"/>
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:ellipsize="end"
+            android:text="@string/item_content_text_size"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"
+            app:layout_constraintLeft_toLeftOf="@id/tvDate"
+            tools:text="Description"/>
+
+    <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/imageIcon"
+            android:layout_width="@dimen/item_article_image_width_height"
+            android:layout_height="@dimen/item_article_image_width_height"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tvDescription"
+            app:layout_constraintTop_toTopOf="@+id/tvTitle"/>
+
+
+</android.support.constraint.ConstraintLayout>

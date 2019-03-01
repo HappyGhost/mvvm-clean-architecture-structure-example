@@ -19,6 +19,7 @@ package com.android.example.github.di
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.myapp.mvvmexample.core.injection.ArticleViewModelFactory
+import com.myapp.mvvmexample.feature.list.viewmodel.ArticleListViewModel
 import com.myapp.mvvmexample.feature.login.viewmodel.LoginViewModel
 import dagger.Binds
 import dagger.Module
@@ -30,7 +31,12 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
-    abstract fun bindUserViewModel(loginViewModel: LoginViewModel): ViewModel
+    abstract fun bindLoginViewModel(loginViewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ArticleListViewModel::class)
+    abstract fun bindArticleListViewModel(articleListViewModel: ArticleListViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ArticleViewModelFactory): ViewModelProvider.Factory

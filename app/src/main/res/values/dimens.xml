@@ -21,4 +21,10 @@
     <dimen name="login_remember_me_text_size">16sp</dimen>
     <dimen name="login_remember_me_text_margin_left">10dp</dimen>
     <dimen name="login_btn_login_margin_top">15dp</dimen>
+    <dimen name="item_article_image_width_height">60dp</dimen>
+    <dimen name="item_article_content_padding">15dp</dimen>
+    <dimen name="item_article_title_margin_left">80dp</dimen>
+    <dimen name="item_article_spacing_between_items">10dp</dimen>
+    <dimen name="item_title_text_size">18sp</dimen>
+    <dimen name="item_title_margin_right">15dp</dimen>
 </resources>
