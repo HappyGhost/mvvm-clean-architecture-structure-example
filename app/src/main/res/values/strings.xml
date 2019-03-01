@@ -21,5 +21,6 @@
     <string name="validation_error_login_fail">username or password is incorrect</string>
     <string name="item_content_text_size">14sp</string>
 
-    <!-- Article List -->
+    <!-- Article detail -->
+    <string name="article_detail_header_title">Detail</string>
 </resources>

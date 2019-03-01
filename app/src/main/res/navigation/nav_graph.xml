@@ -23,15 +23,24 @@
                 app:enterAnim="@anim/slide_in_from_right"
                 app:exitAnim="@anim/fade_out"/>
     </fragment>
-    <fragment android:id="@+id/articleListFragment"
-              android:name="com.myapp.mvvmexample.feature.list.view.ArticleListFragment"
-              android:label="ArticleListFragment">
+    <fragment
+            android:id="@+id/articleListFragment"
+            android:name="com.myapp.mvvmexample.feature.list.view.ArticleListFragment"
+            android:label="ArticleListFragment">
         <action android:id="@+id/action_articleListFragment_to_loginFragment"
                 app:destination="@id/loginFragment"
                 app:popUpTo="@id/articleListFragment"
                 app:popUpToInclusive="true"
                 app:exitAnim="@anim/slide_out_to_right"
                 app:enterAnim="@anim/fade_in"/>
+        <action android:id="@+id/action_articleListFragment_to_articleDetailFragment"
+                app:destination="@id/articleDetailFragment"
+                app:enterAnim="@anim/slide_in_from_right"
+                app:exitAnim="@anim/fade_out"/>
+    </fragment>
+    <fragment android:id="@+id/articleDetailFragment"
+              android:name="com.myapp.mvvmexample.feature.detail.view.ArticleDetailFragment"
+              android:label="ArticleDetailFragment">
     </fragment>
 
 </navigation>

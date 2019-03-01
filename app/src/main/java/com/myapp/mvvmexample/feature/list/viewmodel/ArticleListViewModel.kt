@@ -9,11 +9,15 @@ open class ArticleListViewModel @Inject constructor(var getArticleUseCase: GetAr
 
     fun articleListLiveData() = getArticleUseCase.articleListResult()
 
+    init {
+        getArticleList()
+    }
+
     fun refresh() {
         getArticleList()
     }
 
-    fun getArticleList() {
+    private fun getArticleList() {
         getArticleUseCase.buildUseCase().execute()
     }
 }

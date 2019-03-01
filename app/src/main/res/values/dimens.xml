@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Header with right action-->
     <dimen name="header_text_size">32sp</dimen>
     <dimen name="header_margin_right">24dp</dimen>
     <dimen name="header_title_margin_top_bottom">20dp</dimen>
+
+    <!-- Header of app bar following material design-->
+    <dimen name="header_app_bar_height">56dp</dimen>
+    <dimen name="header_app_bar_padding_left_right">16dp</dimen>
+    <dimen name="header_app_bar_title_text_size">20sp</dimen>
 
     <!-- Walk through screen -->
     <dimen name="walk_through_content_margin_bottom">15dp</dimen>
@@ -27,4 +34,10 @@
     <dimen name="item_article_spacing_between_items">10dp</dimen>
     <dimen name="item_title_text_size">18sp</dimen>
     <dimen name="item_title_margin_right">15dp</dimen>
+    <dimen name="article_detail_title_text_size">18sp</dimen>
+    <dimen name="article_detail_title_margin_top">10dp</dimen>
+    <dimen name="article_detail_content_text_size">16sp</dimen>
+    <dimen name="article_detail_date_margin_top">10dp</dimen>
+    <dimen name="article_detail_description_margin_top">10dp</dimen>
+    <dimen name="header_app_bar_title_width">120dp</dimen>
 </resources>

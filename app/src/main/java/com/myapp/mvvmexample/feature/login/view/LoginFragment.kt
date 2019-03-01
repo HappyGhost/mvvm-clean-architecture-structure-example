@@ -12,12 +12,14 @@ import androidx.navigation.Navigation
 import com.myapp.business.core.callback.Resource
 import com.myapp.business.core.callback.Status
 import com.myapp.mvvmexample.R
+import com.myapp.mvvmexample.core.application.Injectable
 import com.myapp.mvvmexample.core.view.BaseFragment
 import com.myapp.mvvmexample.feature.login.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.include_header_action_right.*
 import javax.inject.Inject
 
-class LoginFragment : BaseFragment() {
+class LoginFragment : BaseFragment(), Injectable {
 
     private lateinit var loginViewModel: LoginViewModel
     private var loginLiveData: LiveData<Resource<String>>? = null
@@ -31,6 +33,7 @@ class LoginFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initHeader()
         loginViewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(LoginViewModel::class.java)
         btnLogin.setOnClickListener {
@@ -51,6 +54,10 @@ class LoginFragment : BaseFragment() {
             switchRemember.isChecked = result?.data?.isRemember!!
         })
         loginViewModel.loadData(context!!)
+    }
+
+    private fun initHeader() {
+        tvHeader.text = getString(R.string.general_header)
     }
 
     private fun handleLoginResult(view: View, result: Resource<String>?) {

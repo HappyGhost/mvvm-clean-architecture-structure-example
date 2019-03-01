@@ -16,6 +16,7 @@
 
 package com.android.example.github.di
 
+import com.myapp.mvvmexample.feature.detail.view.ArticleDetailFragment
 import com.myapp.mvvmexample.feature.list.view.ArticleListFragment
 import com.myapp.mvvmexample.feature.login.view.LoginFragment
 import com.myapp.mvvmexample.feature.walkthrough.view.WalkThroughFragment
@@ -26,11 +27,14 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class FragmentBuildersModule {
     @ContributesAndroidInjector
-    abstract fun contributeRepoFragment(): WalkThroughFragment
+    abstract fun contributeWalkThroughFragment(): WalkThroughFragment
 
     @ContributesAndroidInjector
-    abstract fun contributeUserFragment(): LoginFragment
+    abstract fun contributeLoginFragment(): LoginFragment
 
     @ContributesAndroidInjector
-    abstract fun contributeSearchFragment(): ArticleListFragment
+    abstract fun contributeArticleListFragment(): ArticleListFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeArticleDetailFragment(): ArticleDetailFragment
 }
