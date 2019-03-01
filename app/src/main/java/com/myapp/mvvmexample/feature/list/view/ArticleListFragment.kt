@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.myapp.business.core.callback.Status
 import com.myapp.mvvmexample.R
 import com.myapp.mvvmexample.core.view.BaseFragment
@@ -34,6 +35,13 @@ class ArticleListFragment : BaseFragment() {
         tvHeader.text = getString(R.string.general_header)
         btnRight.visibility = View.VISIBLE
         btnRight.text = getString(R.string.action_logout)
+        btnRight.setOnClickListener { viewClicked ->
+            Navigation.findNavController(viewClicked).navigate(R.id.action_articleListFragment_to_loginFragment)
+        }
+        initArticleRecycle()
+    }
+
+    private fun initArticleRecycle() {
         var adapter = ArticleListAdapter()
         rvArticle.adapter = adapter
         rvArticle.layoutManager = LinearLayoutManager(context)
