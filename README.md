@@ -14,7 +14,7 @@ This is the sample code to apply technology following points below:
 The main purpose of this sample is creating the core structure to adapt different projects. This step is creating it and the next step is applying more new technology and some small projects to see how its adaptation is.
 
 Reference:
-+ [Google sample advance code](https://github.com/googlesamples/android-architecture-components)
++ [Google advance sample code](https://github.com/googlesamples/android-architecture-components)
 + CLEAN ARCHITECTURE: A CRAFTSMAN’S GUIDE TO SOFTWARE STRUCTURE AND DESIGN – ROBERT C. MARTIN book
 
 # Enjoy coding
