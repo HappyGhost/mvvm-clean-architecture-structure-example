@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import com.bumptech.glide.Glide
 import com.myapp.business.rss.article.info.ArticleInfo
 import com.myapp.mvvmexample.R
 import com.myapp.mvvmexample.core.util.DateUtil
@@ -51,6 +52,7 @@ class ArticleDetailFragment : BaseFragment() {
         tvArticleTitle.text = item?.title
         tvDate.text = DateUtil.format(item?.date, DateUtil.DD_MM_YYYY_FORMAT)
         tvDescription.text = item?.description
+        Glide.with(this).load(item?.thumbnailUrl).into(imgThumbnail)
     }
 
     private fun initViewModel() {
