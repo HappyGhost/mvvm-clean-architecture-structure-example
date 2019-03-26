@@ -7,12 +7,14 @@
 
     <!-- Walk through screen-->
 
-    <string name="general_header">GoBear</string>
+    <string name="general_header">MVVM example</string>
+    <string name="walk_through_header">Tutorial</string>
     <string name="walk_through_page_1_content">page 1</string>
     <string name="walk_through_page_2_content">page 2</string>
     <string name="walk_through_page_3_content">page 3</string>
 
     <!-- Login screen -->
+    <string name="login_header">Login</string>
     <string name="login_input_field_username_text">Username</string>
     <string name="login_input_field_password_text">Password</string>
     <string name="login_remember_me_text">Remember me</string>

@@ -23,7 +23,7 @@ class WalkThroughFragment : DaggerFragment() {
     }
 
     private fun initView() {
-        tvHeader.text = getString(R.string.general_header)
+        tvHeader.text = getString(R.string.walk_through_header)
         btnRight.text = getString(R.string.action_skip)
         btnRight.visibility = View.VISIBLE
         val adapter = WalkThroughPageAdapter(childFragmentManager, activity!!)

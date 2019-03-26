@@ -57,7 +57,7 @@ class LoginFragment : BaseFragment(), Injectable {
     }
 
     private fun initHeader() {
-        tvHeader.text = getString(R.string.general_header)
+        tvHeader.text = getString(R.string.login_header)
     }
 
     private fun handleLoginResult(view: View, result: Resource<String>?) {
