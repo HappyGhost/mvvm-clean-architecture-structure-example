@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 class LoginRepositoryImpl : LoginRepository {
 
     override fun login(username: String, pass: String): Observable<String> {
-        return if ("GoBear" == username && "GoBearDemo" == pass) {
+        return if ("Go" == username && "Go" == pass) {
             Observable.just("Success").delay(5, TimeUnit.SECONDS)
         } else {
             val error: Observable<String> = Observable.error(Throwable("username or pass is incorrect"))
